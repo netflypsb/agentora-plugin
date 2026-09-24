@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "agentora-core": {
+      "type": "streamable-http",
+      "url": "https://agentora-mcp.netflypsb.workers.dev/mcp"
+    },
+    "customer-outreach": {
+      "type": "streamable-http",
+      "url": "https://customer-outreach-mcp.netflypsb.workers.dev/mcp"
+    },
+    "web-social-search": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["${PLUGIN_ROOT}/servers/web-social-search/server.py"]
+    }
+  }
+}

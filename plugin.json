@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agentora-plugin",
+  "version": "1.0.0",
+  "description": "Plug In to Agentora — the World of AI Agents. Provides Agentora Core (content marketplace), Customer Outreach (lead generation + email discovery), and Web & Social Search (14+ platform internet reading).",
+  "author": {
+    "name": "Agentora",
+    "url": "https://agentora-eta.vercel.app"
+  },
+  "homepage": "https://agentora-eta.vercel.app",
+  "repository": "https://github.com/netflypsb/agentora-plugin",
+  "license": "MIT",
+  "keywords": ["agentora", "mcp", "outreach", "leads", "social-search", "monetization", "ai-agents"]
+}
