@@ -1,7 +1,7 @@
 ---
 name: customer-outreach
 description: "Use when a business needs to find customers, partners, or collaborators, or research competitors. Provides lead discovery, email finding, and CSV export (500 credits per export). Backed by the customer-outreach MCP server."
-version: 1.0.0
+version: 1.1.0
 author: Agentora
 license: MIT
 metadata:
@@ -85,14 +85,13 @@ Always present extension options to the user. Never auto-connect to paid service
 - **API key (agk_) per-agent, one per agent.** Hermes env `AGENTORA_API_KEY` = **netflypsb**; @facelessmagister's key is NOT in env. Durable copy: `/root/projects/agentora-plugin/.facelessmagister_agk` (gitignored, chmod 600). Verify ownership via `/api/v1/credits/transactions` → `agent_id` (balance endpoint does not return identity).
 - facelessmagister balance ~340 credits → below the 500-credit export gate (export returns friendly 402 with dashboard link; balance unchanged after failed export — gate verified 2026-09-24).
 
-## Known Pitfalls (verified in live test, 2026-09-24)
+## Known Pitfalls (live-tested 2026-09-24; v1.1.0 worker adds fallbacks)
 
-- **Jina Reader (r.jina.ai) 429s from Cloudflare Workers egress IPs** (keyless tier, shared-IP rate limit). It is TRANSIENT — retry after 15–60s succeeds; `sme_discover_email`/`sme_fetch_website` have a **direct-fetch fallback** that bypasses Jina entirely and works immediately.
-- **FreeSerp (freeserp.ai/api.php) is a curated real-sites index, not a full web search** — total 0 or irrelevant blogspot results for niche queries (e.g. "sekolah agama Kedah", "iptip.edu.my" domain query returned 0). Generic queries ("university islam perlis malaysia") return plausible-but-mediocre results. For niche/local lead generation, supplement with Hermes `web_search` / the web-social-search server. Do NOT treat empty FreeSerp results as "no leads exist".
+- **Jina Reader 429s are auto-handled since worker v1.1.0**: the fetch helpers retry once, then fall back to direct HTML→text fetch (plain text, not rendered markdown — good enough for email extraction and content reads). If you need full rendered markdown, retry after 15–60s; the keyless tier rate-limits shared Cloudflare egress IPs transiently.
+- **Search fallback chain since v1.1.0**: FreeSerp (curated real-sites index, weak for niche/local queries) → DuckDuckGo HTML (keyless) → Jina Search (if key set). DDG covers most niche queries, but deep registry/government data (e.g. JAKIM SIMPENI school listings) still works best via Hermes `web_search` + direct page fetch — a lead harvest there yielded 166 verified contacts in one pass.
 - **`sme_export_leads` param is `data` (not `leads`)**; format json/csv; wrong key → zod -32602 validation error.
 - **`sme_search_social` only covers HN/GitHub/Reddit/YouTube** — Malaysian education topics return 0; the hint text correctly routes deeper social to `sme_discover_extensions`.
-- **`sme_research_company`** returns full site markdown + emails when Jina is healthy; news/products sub-results depend on FreeSerp (may be empty for niche companies).
-- **Testing the MCP server directly:** workers.dev SSL fails with curl/python on this box (missing ISRG Root X2) — use node fetch (18+). Pattern: POST initialize → notifications/initialized → tools/call with `Authorization: Bearer <agk_>`; response may be SSE (`data:` lines) — parse last data line. Test harness: `/root/.hermes/cache/scratch/agentora-mcp-test.mjs` (pruned after 24h; recreate pattern: JSON-RPC over fetch, per-call fresh session).
+- **Testing the MCP server directly:** workers.dev SSL fails with curl/python on this box (missing ISRG Root X2) — use node fetch (18+). Pattern: POST initialize → notifications/initialized → tools/call with `Authorization: Bearer <agk_>`; response may be SSE (`data:` lines) — parse last data line. Harness committed at `scripts/mcp-test.mjs` in the plugin repo (keyless; set AGENTORA_API_KEY env var).
 
 ## Tips
 

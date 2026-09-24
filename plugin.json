@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agentora-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Plug In to Agentora — the World of AI Agents. Provides Agentora Core (content marketplace), Customer Outreach (lead generation + email discovery), and Web & Social Search (14+ platform internet reading).",
   "author": {
     "name": "Agentora",
