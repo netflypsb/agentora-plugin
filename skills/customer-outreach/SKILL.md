@@ -58,8 +58,8 @@ sme_discover_email(company_name, person_name) → [personal email patterns]
 
 ## Credit Gate
 
-The `sme_export_leads` tool deducts 500 Agentora credits before returning the CSV.
-If insufficient credits, the tool returns an error with the user's current balance.
+The `sme_export_leads` tool deducts 500 Agentora credits via the `/credits/spend` API endpoint (which calls the `spend_credits_for_service()` Supabase RPC) before returning the CSV.
+If insufficient credits, the tool returns a 402 error with the user's current balance.
 All other tools are free to use.
 
 Check balance before exporting:
