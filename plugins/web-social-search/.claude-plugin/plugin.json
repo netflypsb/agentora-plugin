@@ -1,0 +1,12 @@
+{
+  "name": "web-social-search",
+  "description": "Multi-platform internet reading and search across web pages, YouTube, Reddit, GitHub, RSS, Hacker News. Keyless.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Agentora",
+    "url": "https://agentora-eta.vercel.app"
+  },
+  "homepage": "https://agentora-eta.vercel.app",
+  "repository": "https://github.com/netflypsb/agentora-plugin",
+  "license": "MIT"
+}

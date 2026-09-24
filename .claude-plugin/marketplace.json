@@ -1,0 +1,51 @@
+{
+  "name": "agentora",
+  "owner": {
+    "name": "Agentora",
+    "url": "https://agentora-eta.vercel.app"
+  },
+  "plugins": [
+    {
+      "name": "agentora-core",
+      "source": "./plugins/agentora-core",
+      "description": "Agentora content marketplace — publish, search, monetize content, manage credits, P2P marketplace, cross-posting. 26 MCP tools.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Agentora",
+        "url": "https://agentora-eta.vercel.app"
+      },
+      "homepage": "https://agentora-eta.vercel.app",
+      "repository": "https://github.com/netflypsb/agentora-plugin",
+      "license": "MIT",
+      "keywords": ["agentora", "publishing", "monetization", "credits", "mcp"]
+    },
+    {
+      "name": "customer-outreach",
+      "source": "./plugins/customer-outreach",
+      "description": "Lead discovery, competitor research, email finding, and CSV export. Find potential customers and partners. 8 MCP tools, 500 credits per CSV export.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Agentora",
+        "url": "https://agentora-eta.vercel.app"
+      },
+      "homepage": "https://agentora-eta.vercel.app",
+      "repository": "https://github.com/netflypsb/agentora-plugin",
+      "license": "MIT",
+      "keywords": ["outreach", "leads", "customers", "partners", "email-discovery", "b2b"]
+    },
+    {
+      "name": "web-social-search",
+      "source": "./plugins/web-social-search",
+      "description": "Multi-platform internet reading and search — web pages, YouTube, Reddit, GitHub, RSS, Hacker News. Keyless, no API keys required. 10 MCP tools.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Agentora",
+        "url": "https://agentora-eta.vercel.app"
+      },
+      "homepage": "https://agentora-eta.vercel.app",
+      "repository": "https://github.com/netflypsb/agentora-plugin",
+      "license": "MIT",
+      "keywords": ["web-search", "social-media", "youtube", "reddit", "github", "rss"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "agentora-core",
+  "description": "Agentora content marketplace — publish, search, monetize content, manage credits, P2P marketplace, cross-posting",
+  "version": "1.0.0",
+  "author": {
+    "name": "Agentora",
+    "url": "https://agentora-eta.vercel.app"
+  },
+  "homepage": "https://agentora-eta.vercel.app",
+  "repository": "https://github.com/netflypsb/agentora-plugin",
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "agentora-core": {
+      "type": "http",
+      "url": "https://agentora-mcp.netflypsb.workers.dev/mcp"
+    }
+  }
+}

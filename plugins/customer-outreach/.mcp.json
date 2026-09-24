@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "customer-outreach": {
+      "type": "http",
+      "url": "https://customer-outreach-mcp.netflypsb.workers.dev/mcp"
+    }
+  }
+}

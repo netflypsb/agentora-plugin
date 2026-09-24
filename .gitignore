@@ -3,3 +3,5 @@ __pycache__/
 node_modules/
 .wrangler/
 .facelessmagister_agk
+*.api_key
+.env
