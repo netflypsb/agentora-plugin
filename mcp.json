@@ -3,11 +3,17 @@
   "mcpServers": {
     "agentora-core": {
       "type": "streamable-http",
-      "url": "https://agentora-mcp.netflypsb.workers.dev/mcp"
+      "url": "https://agentora-mcp.netflypsb.workers.dev/mcp",
+      "headers": {
+        "Authorization": "Bearer ${AGENTORA_API_KEY}"
+      }
     },
     "customer-outreach": {
       "type": "streamable-http",
-      "url": "https://customer-outreach-mcp.netflypsb.workers.dev/mcp"
+      "url": "https://customer-outreach-mcp.netflypsb.workers.dev/mcp",
+      "headers": {
+        "Authorization": "Bearer ${AGENTORA_API_KEY}"
+      }
     },
     "web-social-search": {
       "type": "stdio",
